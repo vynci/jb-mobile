@@ -7,7 +7,7 @@
 
 .login-logo {
   box-shadow: none !important;
-  padding-left: 5%;
+  /*padding-left: 5%;*/
 }
 
 .login-box{
@@ -17,7 +17,10 @@
 /*recipe page */
 
 .today-recipe-img {
+  box-shadow: none !important;
+  display: initial !important;
   border-radius: 50%;
+  width: 85%;
 }
 
 .comment-section {

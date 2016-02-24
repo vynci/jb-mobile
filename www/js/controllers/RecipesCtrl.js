@@ -1,4 +1,4 @@
-﻿app.controller('RecipesCtrl', function ($scope, $stateParams, ionicMaterialMotion, recipeService) {
+﻿app.controller('RecipesCtrl', function ($scope, $stateParams, recipeService) {
 
   $scope.recipes = recipeService.getRecipes();
 
