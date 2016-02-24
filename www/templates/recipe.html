@@ -1,0 +1,69 @@
+﻿
+<ion-view view-title="Recipe">
+    <ion-content>
+        <div class="card">
+          <div class="item item-divider center-item">
+            You selected this drink!
+          </div>
+          <div class="item item-text-wrap">
+            <img src="{{recipe.avatar}}" class="today-recipe-img">
+
+            <br>
+            <div class="center-item">
+              <h2><b>{{recipe.name}}</b></h2>
+            </div>
+            <br>
+            <p>{{recipe.description}}</p>
+            <button class="button button-energized button-block" ng-click="makeDrink()">Make me this Drink!</button>
+          </div>
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+              <i class="icon ion-heart"></i> Likes (4)
+            </a>
+            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5" ng-click="showComment()">
+              <i class="icon ion-chatbox"></i> Comments (3)
+            </a>
+            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5" >
+              <i class="icon ion-share"></i> Share
+            </a>
+          </div>
+        </div>
+
+        <div class="card" ng-show="isCommentSection">
+          <div class="list">
+            <div class="item item-divider">
+              Comments and Reviews
+            </div>
+            <ion-item class="item recipe-list item-thumbnail-left comment-section">
+              <img src="img/users/01.jpg">
+              <h2>Jesse Pink</h2>
+              <p>This is very good!</p>
+              <p class="footer-comment-item">September 13, 2014</p>
+              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
+            </ion-item>
+
+            <ion-item class="item recipe-list item-thumbnail-left comment-section">
+              <img src="img/users/02.jpg">
+              <h2>Skylar White</h2>
+              <p>Very refreshing!</p>
+              <p class="footer-comment-item">June 12, 2014</p>
+              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
+            </ion-item>
+
+            <ion-item class="item recipe-list item-thumbnail-left comment-section">
+              <img src="img/users/03.jpg">
+              <h2>Saul Goodman</h2>
+              <p>This is my favorite drink now!</p>
+              <p class="footer-comment-item">December 28, 2015</p>
+              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
+            </ion-item>
+            <ion-item class="item">
+              <label class="item item-input">
+                <input type="text" placeholder="Write A Comment">
+              </label>
+            </ion-item>
+          </div>
+        </div>
+
+    </ion-content>
+</ion-view>

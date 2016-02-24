@@ -1,0 +1,17 @@
+﻿
+<ion-view view-title="Recipe Lists">
+    <ion-content>
+        <div class="im-wrapper">
+            <h4 class="no-border no-padding-bottom">Recipe List</h4>
+            <strong>Tap an item</strong>
+        </div>
+        <div class="list">
+          <ion-item class="item recipe-list item-thumbnail-left" ng-repeat="recipe in recipes" href="#/app/recipes/{{recipe.id}}">
+            <img src="{{recipe.avatar}}">
+            <h2>{{recipe.name}}</h2>
+            <p>{{recipe.description}}</p>
+          </ion-item>
+        </div>
+
+    </ion-content>
+</ion-view>
