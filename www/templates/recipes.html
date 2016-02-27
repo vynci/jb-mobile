@@ -8,8 +8,8 @@
         <div class="list">
           <ion-item class="item recipe-list item-thumbnail-left" ng-repeat="recipe in recipes" href="#/app/recipes/{{recipe.id}}">
             <img src="{{recipe.avatar}}">
-            <h2>{{recipe.name}}</h2>
-            <p>{{recipe.description}}</p>
+            <h2>{{recipe.attributes.name}}</h2>
+            <p>{{recipe.attributes.description}}</p>
           </ion-item>
         </div>
 

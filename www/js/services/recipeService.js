@@ -1,4 +1,4 @@
-app.service('recipeService', function() {
+app.service('recipeService', function($q) {
 	var recipeList = [
 		{
 			'id' : 1,
@@ -42,7 +42,21 @@ app.service('recipeService', function() {
 	};
 
 	var getRecipes = function(){
-		return recipeList;
+        var defer = $q.defer();
+        var RecipeObject = Parse.Object.extend("Recipe");
+        var query = new Parse.Query(RecipeObject);
+        // query.equalTo("name", 'Blueberry Apple');
+        query.find({
+            success: function(results) {
+                console.log(results);
+                defer.resolve(results);
+            },
+            error: function(error) {
+                defer.reject(error);
+                alert("Error: " + error.code + " " + error.message);
+            }
+        });
+        return defer.promise;
 	};
 
 	return {

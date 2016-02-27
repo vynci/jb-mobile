@@ -17,6 +17,8 @@ app.run(function ($ionicPlatform) {
             StatusBar.styleDefault();
         }
     });
+    	
+    Parse.initialize("HuJEMaYSc3vGRhg5npOsOQkAwpOGshBoAD2vfl65", "snLT66OvtzwucT1aHaTjpgJ7OOluvfwHe2PS4yRu");
 })
 
 app.config(function ($stateProvider, $urlRouterProvider) {
