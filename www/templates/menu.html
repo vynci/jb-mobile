@@ -28,11 +28,14 @@
               <ion-item nav-clear menu-close href="#/app/recipes">
                 Recipes
               </ion-item>
-              <ion-item nav-clear menu-close href="#/app/profile">
+              <ion-item nav-clear menu-close ng-show="isLogged" href="#/app/profile">
                 My Profile
               </ion-item>
-              <ion-item nav-clear menu-close href="#/app/login">
+              <ion-item nav-clear menu-close ng-show="isLogged" ng-click="logout()">
                 Logout
+              </ion-item>
+              <ion-item nav-clear menu-close ng-hide="isLogged" href="#/app/login">
+                Login
               </ion-item>
             </ion-list>
         </ion-content>

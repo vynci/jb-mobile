@@ -2,21 +2,27 @@
 <ion-view view-title="Profile">
     <ion-content>
       <div class="list">
-        <a class="item">
-          <b>Name: </b> Walter White
-        </a>
-        <a class="item">
-          <b>Age: </b> 42
-        </a>
-        <a class="item">
-          <b>Gender: </b> Male
-        </a>
-        <a class="item">
-          <b>Height: </b> 160cm
-        </a>
-        <a class="item">
-          <b>Weight: </b> 140kg
-        </a>
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="N/A" ng-model="profile.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Age</span>
+          <input type="text" placeholder="N/A" ng-model="profile.age">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Gender</span>
+          <input type="text" placeholder="N/A" ng-model="profile.gender">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Height</span>
+          <input type="text" placeholder="N/A" ng-model="profile.height">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Weight</span>
+          <input type="text" placeholder="N/A" ng-model="profile.weight">
+        </label>
+
         <div class="item item-divider">
           Health Conditions
         </div>
@@ -26,19 +32,25 @@
         <a class="item">
           Hypertension
         </a>
+
         <div class="item item-divider">
           Nutrition
         </div>
         <a class="item">
-          <b>BMI: </b> 18.5
+          <b>BMI: </b> {{profile.nutrition.BMI}}
         </a>
         <a class="item">
-          <b>Drinks: </b>24
+          <b>Drinks: </b>{{profile.nutrition.Drinks}}
         </a>
         <a class="item">
-          <b>Missed: </b> 5
+          <b>Missed: </b> {{profile.nutrition.Missed}}
         </a>
-        </a>
+
+        <label class="item">
+          <button class="button button-block button-flat button-assertive ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-click="login()">
+            Update Profile
+          </button>
+        </label>
       </div>
     </ion-content>
 </ion-view>

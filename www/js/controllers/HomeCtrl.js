@@ -1,5 +1,5 @@
-﻿app.controller('HomeCtrl', function ($scope, $stateParams, ionicMaterialMotion, socket) {
-
+﻿app.controller('HomeCtrl', function ($scope, $stateParams, ionicMaterialMotion, socket, $window) {
+  
   socket.on('fromPublicServer', function ( data ) {
     console.log(data);
   });

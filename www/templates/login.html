@@ -10,19 +10,19 @@
 
           <label class="item item-input item-floating-label">
             <span class="input-label">Email</span>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Email" ng-model="currentUser.username">
           </label>
           <label class="item item-input item-floating-label">
             <span class="input-label">Password</span>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" ng-model="currentUser.password">
           </label>
           <br />
 
-          <button class="button button-block button-flat button-energized ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-click="login()">
+          <button class="button button-block button-flat button-assertive ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-click="login()">
             Login
           </button>
           <div class="center-item">
-            <button class="button button-clear button-balanced">Not yet member? Register here</button>
+            <button class="button button-clear button-balanced" ng-click="signup()">Signup</button>
           </div>
 
         </div>

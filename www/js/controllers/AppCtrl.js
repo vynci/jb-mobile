@@ -1,6 +1,8 @@
-﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout) {
+﻿app.controller('AppCtrl', function ($rootScope, $scope, $ionicModal, $ionicPopover, $timeout, $ionicHistory, $state, $ionicLoading, $window) {
     // Form data for the login modal
-    $scope.loginData = {};
+    if(Parse.User.current()){
+      $rootScope.isLogged = true;
+    }
 
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
@@ -28,4 +30,29 @@
     $scope.$on('$destroy', function () {
         $scope.popover.remove();
     });
+
+    $scope.logout = function(){
+      $ionicLoading.show({
+        template: '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+      });
+
+      Parse.User.logOut().then(
+        function() {
+          $ionicHistory.nextViewOptions({
+            disableBack: true
+          });
+          $state.go('app.login', {}, {reload: false}).then(function(){
+            setTimeout(function() {
+              $window.location.reload(true);
+            });
+          });
+          $rootScope.isLogged = false;
+          $ionicLoading.hide();
+        }, function(error) {
+          alert('error : ' + error);
+          $ionicLoading.hide();
+        }
+      );
+
+    }
 });

@@ -7,23 +7,23 @@
           </div>
           <div class="item item-text-wrap">
             <div class="center-item">
-              <img src="{{recipe.avatar}}" class="today-recipe-img">
+              <img src="{{recipe.attributes.avatar}}" class="today-recipe-img">
             </div>
 
             <br>
             <div class="center-item">
-              <h2><b>{{recipe.name}}</b></h2>
+              <h2><b>{{recipe.attributes.name}}</b></h2>
             </div>
             <br>
-            <p>{{recipe.description}}</p>
+            <p>{{recipe.attributes.description}}</p>
             <button class="button button-energized button-block" ng-click="makeDrink()">Make me this Drink!</button>
           </div>
           <div class="item tabs tabs-secondary tabs-icon-left">
             <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
-              <i class="icon ion-heart"></i> Likes (4)
+              <i class="icon ion-heart"></i> Likes ({{ recipe.attributes.likes }})
             </a>
             <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5" ng-click="showComment()">
-              <i class="icon ion-chatbox"></i> Comments (3)
+              <i class="icon ion-chatbox"></i> Comments ({{ comments.length }})
             </a>
             <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5" >
               <i class="icon ion-share"></i> Share
@@ -36,33 +36,18 @@
             <div class="item item-divider">
               Comments and Reviews
             </div>
-            <ion-item class="item recipe-list item-avatar comment-section">
-              <img src="img/users/01.jpg">
-              <h2>Jesse Pink</h2>
-              <p>This is very good!</p>
-              <p class="footer-comment-item">September 13, 2014</p>
-              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
+            <ion-item class="item recipe-list item-avatar comment-section" ng-repeat="comment in comments">
+              <img src={{comment.user.avatar}}>
+              <h2>{{comment.user.name}}</h2>
+              <p>{{comment.comment}}</p>
+              <p class="footer-comment-item">{{comment.date}}</p>
+              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like ({{comment.likes}})</p>
             </ion-item>
-
-            <ion-item class="item recipe-list item-avatar comment-section">
-              <img src="img/users/02.jpg">
-              <h2>Skyler White</h2>
-              <p>Very refreshing!</p>
-              <p class="footer-comment-item">June 12, 2014</p>
-              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
-            </ion-item>
-
-            <ion-item class="item recipe-list item-avatar comment-section">
-              <img src="img/users/03.jpg">
-              <h2>Saul Goodman</h2>
-              <p>This is my favorite drink now!</p>
-              <p class="footer-comment-item">December 28, 2015</p>
-              <p class="footer-comment-item"><i class="icon ion-heart"></i> Like</p>
-            </ion-item>
-            <ion-item class="item">
-              <label class="item item-input">
-                <input type="text" placeholder="Write A Comment">
+            <ion-item class="item item-input-inset">
+              <label class="item item-input-wrapper">
+                <input type="text" placeholder="Write A Comment" ng-model="commentModel.comment" required>
               </label>
+              <button class="button button-small button-balanced" ng-click="sendComment()">Send</button>
             </ion-item>
           </div>
         </div>
